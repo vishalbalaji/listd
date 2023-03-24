@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Seo from '$/routes/SEO.svelte';
 	import { browser } from '$app/environment';
+	import { enhance } from '$app/forms';
 	import { goto } from '$app/navigation';
 	import { LL } from '$lib/i18n/i18n-svelte';
 	import type { youtube_v3 } from '@googleapis/youtube';
@@ -31,7 +32,7 @@
 </script>
 
 <Seo title="Create a List" description="Create a List" />
-<form class="mt-4 flex flex-col gap-4" action="/create?/create" method="post">
+<form class="mt-4 flex flex-col gap-4" action="/create?/create" method="post" use:enhance>
 	{#if form?.error}
 		<aside class="alert variant-filled-error">
 			<div class="alert-message">
